@@ -1,19 +1,6 @@
 
 
-<a href="https://web.programming-hero.com">
-<img src="https://raw.githubusercontent.com/ProgrammingHero1/ProgrammingHero1/main/image/banner.png" />
-</a>
+
+<img src="https://i.ibb.co.com/K0YtPqD/Screenshot-2024-12-15-192404.png" />
 
 
-- 👋 Hi, I’m @pro-majidul
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
-
-<!---
-pro-majidul/pro-majidul is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
