@@ -3,9 +3,10 @@
 
 <img src="https://i.ibb.co.com/K0YtPqD/Screenshot-2024-12-15-192404.png" />
 
-
+###  <div>  <img src = "https://media2.giphy.com/media/ZGHpWzdOEkMKtwLqdc/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="40px" height="40px"> **About Me**</div>
 ### **Hi, My name is Md Majidul Islam** 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=4CF78CE6&width=435&lines=I+am+a+MERN+stack+developer..!+;.)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=4CF78CE6&width=435&lines=I+am+a+MERN+stack+developer..!+;.)](https://git.io/typing-svg) <h4 align="left">skilled in React, Node.js, Firebase, and MongoDB. I specialize in creating modern, responsive, and user-friendly web applications. Constantly learning and improving, I love collaborating on innovative projects that solve real-world problems. Let's build something amazing together!</h4>
+###
 
 
 
@@ -29,8 +30,29 @@
 
 <img src="https://img.shields.io/badge/Git-e94e31?style=for-the-badge&logo=git&logoColor=white" />&nbsp;
 <img src="https://img.shields.io/badge/VS CODE-007ACC?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />&nbsp;
-<img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" />&nbsp;
+
 <br/>
+
+<h2>Connect With Me <img src = "https://media2.giphy.com/media/al7grkbrCChTAPEfyh/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="40px" height="40px"></h2>  
+<div align="left">
+  <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
+  <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/twitter/default.svg" width="52" height="40" alt="twitter logo"  />
+  <a href="https://discord.com/channels/1323883740744646758/1323883740744646761" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/discord/default.svg" width="52" height="40" alt="discord logo"  />
+  </a>
+  <a href="https://www.facebook.com/majidul1230" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/facebook/default.svg" width="52" height="40" alt="facebook logo"  />
+  </a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=majidul123tub@gmail.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/gmail/default.svg" width="52" height="40" alt="gmail logo"  />
+  </a>
+  <a href="https://wa.me/8801746637704" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/whatsapp/default.svg" width="52" height="40" alt="whatsapp logo"  />
+  </a>
+</div>
+
+###
+
 
 
 ## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30px" height="30px"> **my github stats &#8595;**
@@ -39,10 +61,21 @@
  
 <div align="center">
   <img width=390 src="https://github-readme-streak-stats-salesp07.vercel.app/?user=pro-majidul&count_private=true&theme=react&border_radius=10" alt="streak stats"/>
- <br>
- <br>
+
+   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=pro-majidul&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
+   
+<br>
+<br>
+
  <img width=390 src="https://github-readme-stats-salesp07.vercel.app/api?username=pro-majidul&count_private=true&show_icons=true&theme=react&rank_icon=github&border_radius=10" alt="readme stats" />
+
+ 
+
+
+###
 </div>
+
+
 
 
 
