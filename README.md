@@ -61,6 +61,8 @@
  
 <div align="center">
   <img width=390 src="https://github-readme-streak-stats-salesp07.vercel.app/?user=pro-majidul&count_private=true&theme=react&border_radius=10" alt="streak stats"/>
+  <br>
+  <br>
 
    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=pro-majidul&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
    
