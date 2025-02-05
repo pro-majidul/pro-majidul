@@ -6,6 +6,12 @@
 ###  <div>  <img src = "https://media2.giphy.com/media/ZGHpWzdOEkMKtwLqdc/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="40px" height="40px"> **About Me**</div>
 ### **Hi, My name is Md Majidul Islam** 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=4CF78CE6&width=435&lines=I+am+a+MERN+stack+developer..!+;.)](https://git.io/typing-svg) <h4 align="left">skilled in React, Node.js, Firebase, and MongoDB. I specialize in creating modern, responsive, and user-friendly web applications. Constantly learning and improving, I love collaborating on innovative projects that solve real-world problems. Let's build something amazing together!</h4>
+
+
+- 🔭 &nbsp; I’m currently working on **Restuarent Website  [Bistro Boss Restuarent]()**
+- 🌱 &nbsp; I’m currently learning Next js; 
+- 💬 &nbsp; Ask me about anything tech related, I am happy to help;
+- 📚 &nbsp; When I am free, I enjoy playing game and traveling.
 ###
 
 
