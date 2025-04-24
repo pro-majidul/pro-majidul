@@ -8,7 +8,7 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=4CF78CE6&width=435&lines=I+am+a+MERN+stack+developer..!+;.)](https://git.io/typing-svg) <h4 align="left">skilled in React, Node.js, Firebase, and MongoDB. I specialize in creating modern, responsive, and user-friendly web applications. Constantly learning and improving, I love collaborating on innovative projects that solve real-world problems. Let's build something amazing together!</h4>
 
 
-- 🔭 &nbsp; I’m currently working on **Restuarent Website  [Bistro Boss Restuarent](https://bistro-boss-restaurant-6bdee.web.app/)**
+- 🔭 &nbsp; I’m currently working on **Restuarent Website  [Online Resume Builder](https://online-resume-builder-omega.vercel.app)**
 - 🌱 &nbsp; I’m currently learning Next js and TypeScript; 
 - 💬 &nbsp; Ask me about anything tech related, I am happy to help;
 - 📚 &nbsp; When I am free, I enjoy playing Cricket and traveling.
