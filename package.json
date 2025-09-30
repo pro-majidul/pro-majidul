@@ -1,0 +1,13 @@
+{
+  "name": "my-spell-synchronized-cards",
+  "version": "1.0.0",
+  "description": "Synchronized language cards for My Spell website",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Open index.html in browser'"
+  },
+  "keywords": ["static", "html", "language-switcher"],
+  "author": "",
+  "license": "MIT"
+}
