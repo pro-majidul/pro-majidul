@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Spell - Synchronized Language Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .ms-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Top Section */
+        .ms-top-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .ms-card {
+            background-color: rgba(0,0,0,0.1);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(5px) !important;
+            position: relative;
+        }
+
+        .ms-card:hover {
+            border-color: #eab308;
+            box-shadow: 0 0 0 1px #eab308;
+        }
+
+        .ms-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .ms-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .ms-inspiration-icon {
+            background: #eab308;
+            color: #1e293b;
+        }
+        .ms-inspiration-icon i {
+            color: white;
+        }
+
+        .ms-invitation-icon {
+            background: #dc2626;
+            color: white;
+        }
+        .ms-invitation-icon i {
+            color: white;
+        }
+
+        .ms-card-title {
+            font-size: 21px;
+            font-weight: 600;
+            color: #f8fafc;
+            flex: 1;
+        }
+
+        .ms-card-content {
+            color: rgb(209, 213, 219, 1);
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        /* Language selector */
+        .myspell-language-selector {
+            margin-left: auto;
+        }
+        
+        .myspell-lang-select {
+            background: rgba(40, 40, 40, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .myspell-lang-select:hover {
+            background: rgba(50, 50, 50, 0.9);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .myspell-lang-select:focus {
+            border-color: #eab308;
+            box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2);
+        }
+
+        .ms-highlight {
+            color: #eab308;
+            font-style: italic;
+        }
+
+        .ms-bold-text {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .ms-quote {
+            color: #eab308;
+            font-style: italic;
+            text-align: center;
+            margin-top: 16px;
+            font-size: 13px;
+        }
+
+        .ms-warning {
+            color: #dc2626;
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 16px;
+            background: #2b1f2a;
+            padding: 12px 8px;
+            border-radius: 6px;
+            border: 1px solid #2b1f2a;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #475569;
+            margin: 16px 0;
+        }
+
+        /* Choose Your Magic Section */
+        .ms-magic-section {
+            text-align: center;
+        }
+
+        .ms-magic-title {
+            font-size: 70px;
+            font-weight: 600;
+            color: #81FFD8;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .ms-magic-subtitle {
+            font-size: 26px;
+            color: #81FFD8;
+            margin-bottom: 48px;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ms-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .ms-pricing-card {
+            background-color: rgba(0,0,0,0.1);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(5px) !important;
+            transition: all 0.2s ease;
+        }
+
+        .ms-pricing-card:hover {
+            border-color: #eab308;
+            box-shadow: 0 0 0 1px #eab308;
+            transform: scale(1.03);
+        }
+
+        .ms-pricing-card.ms-popular {
+            border-color: #eab308;
+        }
+
+        .ms-popular-badge {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #eab308;
+            color: #1e293b;
+            padding: 2px 12px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .ms-pricing-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .ms-pricing-card.ms-popular .ms-pricing-icon {
+            background: #713f12;
+            color: #eab308;
+        }
+
+        .ms-pricing-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 6px;
+        }
+
+        .ms-pricing-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #eab308;
+            margin-bottom: 6px;
+        }
+
+        .ms-pricing-description {
+            font-size: 13px;
+            color: rgb(209, 213, 219, 1);
+            margin-bottom: 20px;
+        }
+
+        .ms-pricing-features {
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .ms-pricing-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: rgb(209, 213, 219, 1);
+        }
+
+        .ms-pricing-feature:before {
+            content: "●";
+            color: #eab308;
+            font-weight: bold;
+            margin-top: 1px;
+            font-size: 12px;
+        }
+
+        .ms-pricing-button {
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .ms-btn-gray {
+            background: #475569;
+            color: #cbd5e1;
+        }
+        .ms-btn-gray:hover {
+            background: #64748b;
+            color: #f8fafc;
+        }
+
+        .ms-btn-orange {
+            background: #ea580c;
+            color: white;
+        }
+        .ms-btn-orange:hover {
+            background: #c2410c;
+        }
+
+        .ms-btn-red {
+            background: #7f1d1d;
+            color: white;
+        }
+        .ms-btn-red:hover {
+            background: #b91c1c;
+        }
+
+        .ms-btn-yellow {
+            background: #ca8a04;
+            color: #1e293b;
+        }
+        .ms-btn-yellow:hover {
+            background: #eab308;
+        }
+
+        .ms-footer-text {
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            margin-top: 32px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .ms-pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ms-top-section {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-bottom: 60px;
+            }
+
+            .ms-magic-title {
+                font-size: 36px;
+            }
+
+            .ms-pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .ms-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .myspell-language-selector {
+                margin-left: 0;
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ms-container">
+        <!-- Top Section -->
+        <div class="ms-top-section">
+            <!-- Inspiration Card -->
+            <div class="ms-card">
+                <div class="ms-card-header">
+                    <div class="ms-card-icon ms-inspiration-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h2 class="ms-card-title" data-translate="inspiration-title">Inspiration</h2>
+                    <!-- Language selector -->
+                    <div class="myspell-language-selector">
+                        <select class="myspell-lang-select language-selector">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ms-card-content" data-translate="inspiration-content">
+                    This song was inspired by Pablo Neruda's poem "Ode to the Butterfly," written in the 1950s. In the poem, a man gallops with a friend across Argentina's wide plains—with mountains in the distance—when a cloud of butterflies darkens the sky, nearly blotting out the sun.
+                    <br><br>
+                    They swarm through the fields, leaving crops in ruins, and the man on the horse, alarmed by the devastation, raises his voice against them: <span class="ms-highlight">"You shall not attack man and his legacy, the peasant and his animals."</span>
+                    <br><br>
+                    Reading this, this songwriter was struck by his defense of man's legacy and asked herself: <span class="ms-bold-text">Is humanity's legacy something I am proud of today?</span> The answer was no—and this song was born, casting a spell of renewal and reimagining our shared legacy.
+                </div>
+                <hr>
+                <div class="ms-quote" data-translate="inspiration-quote">"A transformation born from poetic reflection"</div>
+            </div>
+
+            <!-- Invitation Card -->
+            <div class="ms-card">
+                <div class="ms-card-header">
+                    <div class="ms-card-icon ms-invitation-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h2 class="ms-card-title" data-translate="invitation-title">Invitation</h2>
+                    <!-- Language selector -->
+                    <div class="myspell-language-selector">
+                        <select class="myspell-lang-select language-selector">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ms-card-content" data-translate="invitation-content">
+                    <span class="ms-bold-text">"My Spell"</span> is a poetic spell of self-recognition and empowerment. It's an audacious look at our society and its legacy, during this season when spells are cast and energy shifts—not a dark spell, but one of transformation and renewal.
+                    <br><br>
+                    Opportunities await for stepping into a vital and visible new way of living.
+                    <br><br>
+                    <span class="ms-highlight">Please enjoy.</span>
+                </div>
+                <hr>
+                <div class="ms-warning" data-translate="invitation-warning">Created for adults and teens — not intended for young children.</div>
+            </div>
+        </div>
+
+        <!-- Choose Your Magic Section -->
+        <div class="ms-magic-section">
+            <h1 class="ms-magic-title" data-translate="magic-title">Choose Your Magic</h1>
+            <p class="ms-magic-subtitle" data-translate="magic-subtitle">Select the perfect option to experience and share the transformative power of My Spell</p>
+
+            <div class="ms-pricing-grid">
+                <!-- Personal Access -->
+                <div class="ms-pricing-card">
+                    <div class="ms-pricing-icon">
+                        <i class="fa-regular fa-eye"></i>
+                    </div>
+                    <h3 class="ms-pricing-title" data-translate="personal-title">Personal Access</h3>
+                    <div class="ms-pricing-price">$1</div>
+                    <p class="ms-pricing-description" data-translate="personal-desc">Watch the video with personal viewing rights</p>
+                    <div class="ms-pricing-features">
+                        <div class="ms-pricing-feature" data-translate="personal-feature1">Personal viewing access</div>
+                        <div class="ms-pricing-feature" data-translate="personal-feature2">High-quality video</div>
+                        <div class="ms-pricing-feature" data-translate="personal-feature3">Unlimited replays</div>
+                    </div>
+                    <button class="ms-pricing-button ms-btn-gray" data-translate="select-plan">Select Plan</button>
+                </div>
+
+                <!-- Single E-card -->
+                <div class="ms-pricing-card">
+                    <div class="ms-pricing-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <h3 class="ms-pricing-title" data-translate="single-title">Single E-card</h3>
+                    <div class="ms-pricing-price">$5</div>
+                    <p class="ms-pricing-description" data-translate="single-desc">Send 1 personalized e-card</p>
+                    <div class="ms-pricing-features">
+                        <div class="ms-pricing-feature" data-translate="single-feature1">1 personalized e-card</div>
+                        <div class="ms-pricing-feature" data-translate="single-feature2">Custom message</div>
+                        <div class="ms-pricing-feature" data-translate="single-feature3">Recipient notifications</div>
+                        <div class="ms-pricing-feature" data-translate="single-feature4">Personal viewing access</div>
+                    </div>
+                    <button class="ms-pricing-button ms-btn-yellow" data-translate="select-plan">Select Plan</button>
+                </div>
+
+                <!-- Double E-cards (Most Popular) -->
+                <div class="ms-pricing-card ms-popular">
+                    <div class="ms-popular-badge" data-translate="most-popular">MOST POPULAR</div>
+                    <div class="ms-pricing-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="ms-pricing-title" data-translate="double-title">Double E-cards</h3>
+                    <div class="ms-pricing-price">$8</div>
+                    <p class="ms-pricing-description" data-translate="double-desc">Send 2 personalized e-cards</p>
+                    <div class="ms-pricing-features">
+                        <div class="ms-pricing-feature" data-translate="double-feature1">2 personalized e-cards</div>
+                        <div class="ms-pricing-feature" data-translate="double-feature2">Custom messages</div>
+                        <div class="ms-pricing-feature" data-translate="double-feature3">Recipient notifications</div>
+                        <div class="ms-pricing-feature" data-translate="double-feature4">Personal viewing access</div>
+                    </div>
+                    <button class="ms-pricing-button ms-btn-red" data-translate="select-plan">Select Plan</button>
+                </div>
+
+                <!-- Triple E-cards -->
+                <div class="ms-pricing-card">
+                    <div class="ms-pricing-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="ms-pricing-title" data-translate="triple-title">Triple E-cards</h3>
+                    <div class="ms-pricing-price">$12</div>
+                    <p class="ms-pricing-description" data-translate="triple-desc">Send 3 personalized e-cards</p>
+                    <div class="ms-pricing-features">
+                        <div class="ms-pricing-feature" data-translate="triple-feature1">3 personalized e-cards</div>
+                        <div class="ms-pricing-feature" data-translate="triple-feature2">Custom messages</div>
+                        <div class="ms-pricing-feature" data-translate="triple-feature3">Priority delivery</div>
+                        <div class="ms-pricing-feature" data-translate="triple-feature4">Personal viewing access</div>
+                    </div>
+                    <button class="ms-pricing-button ms-btn-yellow" data-translate="select-plan">Select Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Translation data
+        const translations = {
+            en: {
+                'inspiration-title': 'Inspiration',
+                'inspiration-content': `This song was inspired by Pablo Neruda's poem "Ode to the Butterfly," written in the 1950s. In the poem, a man gallops with a friend across Argentina's wide plains—with mountains in the distance—when a cloud of butterflies darkens the sky, nearly blotting out the sun.
+                <br><br>
+                They swarm through the fields, leaving crops in ruins, and the man on the horse, alarmed by the devastation, raises his voice against them: <span class="ms-highlight">"You shall not attack man and his legacy, the peasant and his animals."</span>
+                <br><br>
+                Reading this, this songwriter was struck by his defense of man's legacy and asked herself: <span class="ms-bold-text">Is humanity's legacy something I am proud of today?</span> The answer was no—and this song was born, casting a spell of renewal and reimagining our shared legacy.`,
+                'inspiration-quote': '"A transformation born from poetic reflection"',
+                'invitation-title': 'Invitation',
+                'invitation-content': `<span class="ms-bold-text">"My Spell"</span> is a poetic spell of self-recognition and empowerment. It's an audacious look at our society and its legacy, during this season when spells are cast and energy shifts—not a dark spell, but one of transformation and renewal.
+                <br><br>
+                Opportunities await for stepping into a vital and visible new way of living.
+                <br><br>
+                <span class="ms-highlight">Please enjoy.</span>`,
+                'invitation-warning': 'Created for adults and teens — not intended for young children.',
+                'magic-title': 'Choose Your Magic',
+                'magic-subtitle': 'Select the perfect option to experience and share the transformative power of My Spell',
+                'personal-title': 'Personal Access',
+                'personal-desc': 'Watch the video with personal viewing rights',
+                'personal-feature1': 'Personal viewing access',
+                'personal-feature2': 'High-quality video',
+                'personal-feature3': 'Unlimited replays',
+                'single-title': 'Single E-card',
+                'single-desc': 'Send 1 personalized e-card',
+                'single-feature1': '1 personalized e-card',
+                'single-feature2': 'Custom message',
+                'single-feature3': 'Recipient notifications',
+                'single-feature4': 'Personal viewing access',
+                'double-title': 'Double E-cards',
+                'double-desc': 'Send 2 personalized e-cards',
+                'double-feature1': '2 personalized e-cards',
+                'double-feature2': 'Custom messages',
+                'double-feature3': 'Recipient notifications',
+                'double-feature4': 'Personal viewing access',
+                'triple-title': 'Triple E-cards',
+                'triple-desc': 'Send 3 personalized e-cards',
+                'triple-feature1': '3 personalized e-cards',
+                'triple-feature2': 'Custom messages',
+                'triple-feature3': 'Priority delivery',
+                'triple-feature4': 'Personal viewing access',
+                'most-popular': 'MOST POPULAR',
+                'select-plan': 'Select Plan'
+            },
+            es: {
+                'inspiration-title': 'Inspiración',
+                'inspiration-content': `Esta canción fue inspirada por el poema de Pablo Neruda "Oda a la Mariposa", escrito en los años 1950. En el poema, un hombre galopa con un amigo a través de las amplias llanuras de Argentina—con montañas en la distancia—cuando una nube de mariposas oscurece el cielo, casi bloqueando el sol.
+                <br><br>
+                Se arremolinan por los campos, dejando las cosechas en ruinas, y el hombre a caballo, alarmado por la devastación, alza su voz contra ellas: <span class="ms-highlight">"No atacarás al hombre y su legado, al campesino y sus animales."</span>
+                <br><br>
+                Leyendo esto, esta compositora fue impactada por su defensa del legado del hombre y se preguntó: <span class="ms-bold-text">¿Es el legado de la humanidad algo de lo que me siento orgullosa hoy?</span> La respuesta fue no—y esta canción nació, lanzando un hechizo de renovación y reimaginando nuestro legado compartido.`,
+                'inspiration-quote': '"Una transformación nacida de la reflexión poética"',
+                'invitation-title': 'Invitación',
+                'invitation-content': `<span class="ms-bold-text">"Mi Hechizo"</span> es un hechizo poético de auto-reconocimiento y empoderamiento. Es una mirada audaz a nuestra sociedad y su legado, durante esta temporada cuando se lanzan hechizos y la energía cambia—no un hechizo oscuro, sino uno de transformación y renovación.
+                <br><br>
+                Las oportunidades esperan para entrar en una forma vital y visible de vivir.
+                <br><br>
+                <span class="ms-highlight">Por favor disfruta.</span>`,
+                'invitation-warning': 'Creado para adultos y adolescentes — no destinado a niños pequeños.',
+                'magic-title': 'Elige Tu Magia',
+                'magic-subtitle': 'Selecciona la opción perfecta para experimentar y compartir el poder transformador de Mi Hechizo',
+                'personal-title': 'Acceso Personal',
+                'personal-desc': 'Ver el video con derechos de visualización personal',
+                'personal-feature1': 'Acceso de visualización personal',
+                'personal-feature2': 'Video de alta calidad',
+                'personal-feature3': 'Reproducciones ilimitadas',
+                'single-title': 'Tarjeta-E Individual',
+                'single-desc': 'Enviar 1 tarjeta-e personalizada',
+                'single-feature1': '1 tarjeta-e personalizada',
+                'single-feature2': 'Mensaje personalizado',
+                'single-feature3': 'Notificaciones al destinatario',
+                'single-feature4': 'Acceso de visualización personal',
+                'double-title': 'Tarjetas-E Dobles',
+                'double-desc': 'Enviar 2 tarjetas-e personalizadas',
+                'double-feature1': '2 tarjetas-e personalizadas',
+                'double-feature2': 'Mensajes personalizados',
+                'double-feature3': 'Notificaciones al destinatario',
+                'double-feature4': 'Acceso de visualización personal',
+                'triple-title': 'Tarjetas-E Triples',
+                'triple-desc': 'Enviar 3 tarjetas-e personalizadas',
+                'triple-feature1': '3 tarjetas-e personalizadas',
+                'triple-feature2': 'Mensajes personalizados',
+                'triple-feature3': 'Entrega prioritaria',
+                'triple-feature4': 'Acceso de visualización personal',
+                'most-popular': 'MÁS POPULAR',
+                'select-plan': 'Seleccionar Plan'
+            },
+            ru: {
+                'inspiration-title': 'Вдохновение',
+                'inspiration-content': `Эта песня была вдохновлена поэмой Пабло Неруды "Ода бабочке", написанной в 1950-х годах. В поэме мужчина скачет с другом по широким равнинам Аргентины—с горами вдалеке—когда облако бабочек затемняет небо, почти закрывая солнце.
+                <br><br>
+                Они роятся по полям, оставляя урожай в руинах, и мужчина на лошади, встревоженный разрушением, поднимает свой голос против них: <span class="ms-highlight">"Вы не будете нападать на человека и его наследие, крестьянина и его животных."</span>
+                <br><br>
+                Читая это, эта автор песен была поражена его защитой наследия человека и спросила себя: <span class="ms-bold-text">Является ли наследие человечества тем, чем я горжусь сегодня?</span> Ответ был нет—и эта песня родилась, создавая заклинание обновления и переосмысления нашего общего наследия.`,
+                'inspiration-quote': '"Трансформация, рожденная из поэтического размышления"',
+                'invitation-title': 'Приглашение',
+                'invitation-content': `<span class="ms-bold-text">"Мое Заклинание"</span> - это поэтическое заклинание самопознания и расширения возможностей. Это смелый взгляд на наше общество и его наследие, в это время года, когда произносятся заклинания и меняется энергия—не темное заклинание, а заклинание трансформации и обновления.
+                <br><br>
+                Возможности ждут, чтобы войти в жизненно важный и видимый новый способ жизни.
+                <br><br>
+                <span class="ms-highlight">Пожалуйста, наслаждайтесь.</span>`,
+                'invitation-warning': 'Создано для взрослых и подростков — не предназначено для маленьких детей.',
+                'magic-title': 'Выберите Свою Магию',
+                'magic-subtitle': 'Выберите идеальный вариант, чтобы испытать и поделиться преобразующей силой Моего Заклинания',
+                'personal-title': 'Личный Доступ',
+                'personal-desc': 'Смотрите видео с правами личного просмотра',
+                'personal-feature1': 'Доступ к личному просмотру',
+                'personal-feature2': 'Высококачественное видео',
+                'personal-feature3': 'Неограниченные повторы',
+                'single-title': 'Одиночная Э-открытка',
+                'single-desc': 'Отправить 1 персонализированную э-открытку',
+                'single-feature1': '1 персонализированная э-открытка',
+                'single-feature2': 'Пользовательское сообщение',
+                'single-feature3': 'Уведомления получателя',
+                'single-feature4': 'Доступ к личному просмотру',
+                'double-title': 'Двойные Э-открытки',
+                'double-desc': 'Отправить 2 персонализированные э-открытки',
+                'double-feature1': '2 персонализированные э-открытки',
+                'double-feature2': 'Пользовательские сообщения',
+                'double-feature3': 'Уведомления получателя',
+                'double-feature4': 'Доступ к личному просмотру',
+                'triple-title': 'Тройные Э-открытки',
+                'triple-desc': 'Отправить 3 персонализированные э-открытки',
+                'triple-feature1': '3 персонализированные э-открытки',
+                'triple-feature2': 'Пользовательские сообщения',
+                'triple-feature3': 'Приоритетная доставка',
+                'triple-feature4': 'Доступ к личному просмотру',
+                'most-popular': 'САМЫЙ ПОПУЛЯРНЫЙ',
+                'select-plan': 'Выбрать План'
+            }
+        };
+
+        // Language synchronization functionality
+        class LanguageSynchronizer {
+            constructor() {
+                this.currentLanguage = 'en';
+                this.selectors = document.querySelectorAll('.language-selector');
+                this.init();
+            }
+
+            init() {
+                // Add event listeners to all language selectors
+                this.selectors.forEach(selector => {
+                    selector.addEventListener('change', (e) => {
+                        this.changeLanguage(e.target.value);
+                    });
+                });
+            }
+
+            changeLanguage(language) {
+                this.currentLanguage = language;
+                
+                // Update all selectors to the same language
+                this.selectors.forEach(selector => {
+                    selector.value = language;
+                });
+
+                // Update all translatable content
+                this.updateContent(language);
+            }
+
+            updateContent(language) {
+                const elements = document.querySelectorAll('[data-translate]');
+                
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[language] && translations[language][key]) {
+                        element.innerHTML = translations[language][key];
+                    }
+                });
+            }
+        }
+
+        // Initialize the language synchronizer when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new LanguageSynchronizer();
+        });
+    </script>
+</body>
+</html>
